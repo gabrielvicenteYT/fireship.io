@@ -9,5 +9,5 @@ emoji: 🔥
 video_length: 2:42
 ---
 
-See [this snippet](/snippets/install-angularfire/) for guided setup instructions or reference the [official docs](https://github.com/angular/angularfire2). 
-
+See [this snippet](/snippets/install-angularfire/) for guided setup instructions
+or reference the [official docs](https://github.com/angular/angularfire2).

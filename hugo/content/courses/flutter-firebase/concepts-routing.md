@@ -11,34 +11,24 @@ video_length: 3:57
 
 ## Example Code
 
-{{< file "dart" "main.dart" >}}
-{{< highlight dart >}}
-class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return MaterialApp(
+{{< file "dart" "main.dart" >}} {{< highlight dart >}} class MyApp extends
+StatelessWidget { @override Widget build(BuildContext context) { return
+MaterialApp(
 
-    
      routes: {
        '/home': (context) => HomeScreen(),
        '/slideshow': (context) => SlideshowScreen()
      },
 
      home: HomeScreen(),
-   );
- }
-}
 
-class HomeScreen extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return Scaffold(
-     appBar: AppBar(title: Text('Home'), backgroundColor: Colors.red,),
-     body: Center(
-       child: Row(
-         mainAxisAlignment: MainAxisAlignment.center,
-         children: <Widget>[
-           FlatButton(child: Text('push'), color: Colors.green, onPressed: () {
+); } }
+
+class HomeScreen extends StatelessWidget { @override Widget build(BuildContext
+context) { return Scaffold( appBar: AppBar(title: Text('Home'), backgroundColor:
+Colors.red,), body: Center( child: Row( mainAxisAlignment:
+MainAxisAlignment.center, children: <Widget>[ FlatButton(child: Text('push'),
+color: Colors.green, onPressed: () {
 
              // Navigator.push(
              //   context,
@@ -61,8 +51,7 @@ class HomeScreen extends StatelessWidget {
          ],
        ),
      ),
-   );
- }
-}
+
+); } }
 
 {{< /highlight >}}

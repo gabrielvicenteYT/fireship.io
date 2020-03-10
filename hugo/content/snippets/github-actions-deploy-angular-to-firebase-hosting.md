@@ -4,7 +4,9 @@ publishdate: 2019-02-19T23:12:09-07:00
 lastmod: 2019-12-30T14:25:09-07:00
 draft: false
 author: Marc Stammerjohann
-description: A step-by-step guide to create a Github Action to deploy your Angular App to Firebase Hosting.
+description:
+  A step-by-step guide to create a Github Action to deploy your Angular App to
+  Firebase Hosting.
 tags:
   - firebase
   - github
@@ -12,7 +14,9 @@ tags:
   - devops
 ---
 
-This snippet helps you to setup [Github Actions](https://github.com/features/actions) in your **Angular** project to build and deploy your app to **Firebase** on `git push`.
+This snippet helps you to setup
+[Github Actions](https://github.com/features/actions) in your **Angular**
+project to build and deploy your app to **Firebase** on `git push`.
 
 ### Step 1. Actions
 
@@ -28,14 +32,11 @@ To create your first workflow click on **Set up a workflow yourself**
 
 Your first Github action looks like this:
 
-{{< file "github" "main.yml" >}}
-{{< highlight typescript >}}
-name: CI
+{{< file "github" "main.yml" >}} {{< highlight typescript >}} name: CI
 
 on: [push]
 
-jobs:
-  build:
+jobs: build:
 
     runs-on: ubuntu-latest
 
@@ -47,90 +48,80 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+
 {{< /highlight >}}
 
 ### Step 3. Customize job name
 
-The current job name is **build**, keep as it is or give it a new name like **firebase-deploy**
+The current job name is **build**, keep as it is or give it a new name like
+**firebase-deploy**
 
-{{< highlight typescript >}}
-jobs:
-  firebase-deploy:
-{{< /highlight >}}
+{{< highlight typescript >}} jobs: firebase-deploy: {{< /highlight >}}
 
 ### Step 4. Customize workflow trigger
 
-Currently, the workflow will be triggered on **push** into any branch. Lets change the trigger rule to only trigger the worklflow on **push** into `master` or `release/*`:
+Currently, the workflow will be triggered on **push** into any branch. Lets
+change the trigger rule to only trigger the worklflow on **push** into `master`
+or `release/*`:
 
-{{< highlight typescript >}}
-on:
-  push:
-    branches:
-    - master
-    - release/*
+{{< highlight typescript >}} on: push: branches: - master - release/\*
 {{< /highlight >}}
 
 ### Step 5. Update checkout action
 
-The workflow uses `actions/checkout@v1` which has the lastest version `2.0.0`. Lets update it to `actions/checkout@v2` or even `actions/checkout@master`
+The workflow uses `actions/checkout@v1` which has the lastest version `2.0.0`.
+Lets update it to `actions/checkout@v2` or even `actions/checkout@master`
 
 {{< highlight typescript >}}
-- uses: actions/checkout@master
-{{< /highlight >}}
+
+- uses: actions/checkout@master {{< /highlight >}}
 
 ### Step 6. Setup Node.js
 
-Now lets install our dependencies and build the Angular app. We use [Setup Node.js for use with actions](https://github.com/marketplace/actions/setup-node-js-for-use-with-actions) and update our steps to look like this:
+Now lets install our dependencies and build the Angular app. We use
+[Setup Node.js for use with actions](https://github.com/marketplace/actions/setup-node-js-for-use-with-actions)
+and update our steps to look like this:
 
-{{< highlight typescript >}}
-steps:
+{{< highlight typescript >}} steps:
+
 - uses: actions/checkout@master
-- uses: actions/setup-node@master
-  with:
-    node-version: '10.x'
+- uses: actions/setup-node@master with: node-version: '10.x'
 - run: npm install
-- run: npm run build:prod
-{{< /highlight >}}
+- run: npm run build:prod {{< /highlight >}}
 
 ### Step 7. Deploy to Firebase
 
-Our last step is to deploy the Angular app to Firebase Hosting. [GitHub Action for Firebase](https://github.com/marketplace/actions/github-action-for-firebase) enables us to easily deply our app to Firebase.
+Our last step is to deploy the Angular app to Firebase Hosting.
+[GitHub Action for Firebase](https://github.com/marketplace/actions/github-action-for-firebase)
+enables us to easily deply our app to Firebase.
 
-{{< highlight typescript >}}
-steps:
+{{< highlight typescript >}} steps:
+
 - uses: actions/checkout@master
-- uses: actions/setup-node@master
-  with:
-  node-version: '10.x'
+- uses: actions/setup-node@master with: node-version: '10.x'
 - run: npm install
 - run: npm run build:prod
-- uses: w9jds/firebase-action@master
-  with:
-    args: deploy --only hosting
-  env:
-    FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-{{< /highlight >}}
+- uses: w9jds/firebase-action@master with: args: deploy --only hosting env:
+  FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }} {{< /highlight >}}
 
 Now click on **Start commit** on the right side to commit your new workflow.
 
 ### Step 8. Firebase Token
 
-Github requires a **FIREBASE_TOKEN** to be able to deploy your Angular app to Firebase.
-Generate a token for firebase ci:
+Github requires a **FIREBASE_TOKEN** to be able to deploy your Angular app to
+Firebase. Generate a token for firebase ci:
 
 - install `npm i -g firebase-tools`
 - `firebase login:ci` returns a token to be used in a CI server
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-Waiting for authentication...
+{{< file "terminal" "command line" >}} {{< highlight text >}} Waiting for
+authentication...
 
 ✔ Success! Use this token to login on a CI server:
 
 1/A29..............y
 
-Example: firebase deploy --token "\$FIREBASE_TOKEN"
-{{< /highlight >}}
+Example: firebase deploy --token "\$FIREBASE_TOKEN" {{< /highlight >}}
 
 Go to `Settings > Secrets`:
 
@@ -140,18 +131,11 @@ Go to `Settings > Secrets`:
 
 Your final workflow should look something like this in the text editor:
 
-{{< file "github" "main.yml" >}}
-{{< highlight typescript >}}
-name: CI
+{{< file "github" "main.yml" >}} {{< highlight typescript >}} name: CI
 
-on:
-  push:
-    branches:
-    - master
-    - release/*
+on: push: branches: - master - release/\*
 
-jobs:
-  firebase-deploy:
+jobs: firebase-deploy:
 
     runs-on: ubuntu-latest
 
@@ -167,8 +151,15 @@ jobs:
         args: deploy --only hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
 {{< /highlight >}}
 
-Now you can commit your new workflow to your repository. This workflow is added to `.github/workflows/main.yml`. Go ahead and push a change to your Angular project and you can see the progress in the **Actions** tab and your change are deployed directly to Firebase. 
+Now you can commit your new workflow to your repository. This workflow is added
+to `.github/workflows/main.yml`. Go ahead and push a change to your Angular
+project and you can see the progress in the **Actions** tab and your change are
+deployed directly to Firebase.
 
-[ng-firebase-github-action](https://github.com/marcjulian/ng-firebase-github-actions) is an example Angular app w/ the `main.yml` deploying the app to Firebase hosting. The app is available on firebase [here](https://ng-firebase-github-actions.firebaseapp.com/).
+[ng-firebase-github-action](https://github.com/marcjulian/ng-firebase-github-actions)
+is an example Angular app w/ the `main.yml` deploying the app to Firebase
+hosting. The app is available on firebase
+[here](https://ng-firebase-github-actions.firebaseapp.com/).

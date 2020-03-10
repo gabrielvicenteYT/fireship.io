@@ -4,13 +4,14 @@ lastmod: 2019-08-25T10:43:13-07:00
 publishdate: 2019-08-25T10:43:13-07:00
 author: Jeff Delaney
 draft: false
-description: Build a pipeline for full-text search indexing with Firestore Cloud Functions
-tags: 
-    - node
-    - algolia
-    - firestore
-    - cloud-functions
-    - mvp
+description:
+  Build a pipeline for full-text search indexing with Firestore Cloud Functions
+tags:
+  - node
+  - algolia
+  - firestore
+  - cloud-functions
+  - mvp
 
 youtube: dTXzxSlhTDM
 github: https://github.com/fireship-io/203-algolia-firestore-mvp
@@ -24,14 +25,22 @@ github: https://github.com/fireship-io/203-algolia-firestore-mvp
 #    rxdart: 0.20
 ---
 
-One of the most commonly encountered limitations of [Cloud Firestore](https://firebase.google.com/docs/firestore) (and GCP) is [full-text search](https://en.wikipedia.org/wiki/Full-text_search). This functionality is essential if you need to query complex text patterns in a database or filter results by multiple dynamic properties. My favorite solution to this limitation is [Algolia](https://www.algolia.com/), which provides a powerful, developer-friendly, search & discovery API. In the following lesson you will learn how to sync your Firestore data to an Algolia index via Cloud Functions. 
-
+One of the most commonly encountered limitations of
+[Cloud Firestore](https://firebase.google.com/docs/firestore) (and GCP) is
+[full-text search](https://en.wikipedia.org/wiki/Full-text_search). This
+functionality is essential if you need to query complex text patterns in a
+database or filter results by multiple dynamic properties. My favorite solution
+to this limitation is [Algolia](https://www.algolia.com/), which provides a
+powerful, developer-friendly, search & discovery API. In the following lesson
+you will learn how to sync your Firestore data to an Algolia index via Cloud
+Functions.
 
 {{< figure src="img/algolia-firestore-demo.png" caption="Notice how the Algolia index (left) is synced-up with the Firestore document (right)" >}}
 
 ## Frontend Integrations
 
-This lesson is integrated with multiple frontend frameworks. After deploying the backend code in this lesson, choose your favorite frontend flavor 🍧. 
+This lesson is integrated with multiple frontend frameworks. After deploying the
+backend code in this lesson, choose your favorite frontend flavor 🍧.
 
 <nav>
     {{< mvp-chapter name="angular" link="/snippets/algolia-instantsearch-angular" >}}
@@ -45,56 +54,55 @@ This lesson is integrated with multiple frontend frameworks. After deploying the
 
 ### Initialize Cloud Functions
 
-First, initialize Cloud Functions in your project with the Firebase Tools CLI. This lesson uses vanilla JS, but feel free to select TypeScript if you prefer. 
+First, initialize Cloud Functions in your project with the Firebase Tools CLI.
+This lesson uses vanilla JS, but feel free to select TypeScript if you prefer.
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-npm i -g firebase-tools
-firebase init functions
-{{< /highlight >}}
+{{< file "terminal" "command line" >}} {{< highlight text >}} npm i -g
+firebase-tools firebase init functions {{< /highlight >}}
 
 ### Install Algolia
 
-Indexing tasks can be handled in Node with the [Algolia JS SDK](https://www.algolia.com/doc/api-client/getting-started/install/javascript/?language=javascript) package. 
+Indexing tasks can be handled in Node with the
+[Algolia JS SDK](https://www.algolia.com/doc/api-client/getting-started/install/javascript/?language=javascript)
+package.
 
-{{< highlight text >}}
-cd functions
-npm install algoliasearch
-{{< /highlight >}}
+{{< highlight text >}} cd functions npm install algoliasearch {{< /highlight >}}
 
 ### Create an Index
 
-Algolia provides a guided UI for building indexes that support full-text search. 
+Algolia provides a guided UI for building indexes that support full-text search.
 
 {{< figure src="img/create-index.png" caption="Create an index named customers on the Algolia dashboard" >}}
 
 ### Add the Algolia API Key to Firebase
 
-You can find your credentials under the *API Keys* tab. Your backend code requires the **Application ID** and **Admin API Key**. Keep the admin key safe and do not expose it to the public. 
+You can find your credentials under the _API Keys_ tab. Your backend code
+requires the **Application ID** and **Admin API Key**. Keep the admin key safe
+and do not expose it to the public.
 
 {{< figure src="img/api-keys.png" caption="You need the Algolia App ID and Admin API Key" >}}
 
-Now set the API key and template ID in the Firebase project with the following command. 
+Now set the API key and template ID in the Firebase project with the following
+command.
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-firebase functions:config:set algolia.app=YOUR_APP_ID algolia.key=ADMIN_API_KEY
+{{< file "terminal" "command line" >}} {{< highlight text >}} firebase
+functions:config:set algolia.app=YOUR_APP_ID algolia.key=ADMIN_API_KEY
 {{< /highlight >}}
 
 ## Algolia Cloud Functions
 
-Setup the Cloud Functions environment by initializing the Algolia client and index. 
+Setup the Cloud Functions environment by initializing the Algolia client and
+index.
 
-{{< file "js" "functions/index.js" >}}
-{{< highlight javascript >}}
-const functions = require('firebase-functions');
-const algoliasearch = require('algoliasearch');
+{{< file "js" "functions/index.js" >}} {{< highlight javascript >}} const
+functions = require('firebase-functions'); const algoliasearch =
+require('algoliasearch');
 
-const APP_ID = functions.config().algolia.app;
-const ADMIN_KEY = functions.config().algolia.key;
+const APP_ID = functions.config().algolia.app; const ADMIN_KEY =
+functions.config().algolia.key;
 
-const client = algoliasearch(APP_ID, ADMIN_KEY);
-const index = client.initIndex('customers');
+const client = algoliasearch(APP_ID, ADMIN_KEY); const index =
+client.initIndex('customers');
 
 /// Cloud Functions
 
@@ -102,17 +110,21 @@ exports.addToIndex; // TODO
 
 exports.updateIndex; // TODO
 
-exports.deleteFromIndex; // TODO
-{{< /highlight >}}
+exports.deleteFromIndex; // TODO {{< /highlight >}}
 
 ### Add Record to Algolia
 
-Our goal is to duplicate a subset of data from the Firestore customer document to Algolia. The first step is to add a new record to the index with the `onCreate` Firestore event. 
+Our goal is to duplicate a subset of data from the Firestore customer document
+to Algolia. The first step is to add a new record to the index with the
+`onCreate` Firestore event.
 
-💡 Tip. Only index data in Algolia that is actually useful for searching and/or displaying in search results. Do NOT index personally identifiable information (PII), like phone numbers and email addresses. You may not need to duplicate the entire document. 
+💡 Tip. Only index data in Algolia that is actually useful for searching and/or
+displaying in search results. Do NOT index personally identifiable information
+(PII), like phone numbers and email addresses. You may not need to duplicate the
+entire document.
 
-{{< highlight javascript >}}
-exports.addToIndex = functions.firestore.document('customers/{customerId}')
+{{< highlight javascript >}} exports.addToIndex =
+functions.firestore.document('customers/{customerId}')
 
     .onCreate(snapshot => {
 
@@ -122,75 +134,74 @@ exports.addToIndex = functions.firestore.document('customers/{customerId}')
         return index.addObject({ ...data, objectID });
 
     });
+
 {{< /highlight >}}
 
 ### Update a Record in Algolia
 
-If the Firestore document data changes, we want these changes reflected in the index and search results. We can easily handle this task with an `onUpdate` function. 
+If the Firestore document data changes, we want these changes reflected in the
+index and search results. We can easily handle this task with an `onUpdate`
+function.
 
-{{< highlight javascript >}}
-exports.updateIndex = functions.firestore.document('customers/{customerId}')
+{{< highlight javascript >}} exports.updateIndex =
+functions.firestore.document('customers/{customerId}')
 
     .onUpdate((change) => {
         const newData = change.after.data();
         const objectID = change.after.id;
         return index.saveObject({ ...newData, objectID });
     });
+
 {{< /highlight >}}
 
 ### Delete a Record
 
-When a Firestore document is deleted, we must also remove it from the search index. In this case, we simply pass the objectID to Algolia within an `onDelete` function.  
+When a Firestore document is deleted, we must also remove it from the search
+index. In this case, we simply pass the objectID to Algolia within an `onDelete`
+function.
 
-{{< highlight javascript >}}
-exports.deleteFromIndex = functions.firestore.document('customers/{customerId}')
+{{< highlight javascript >}} exports.deleteFromIndex =
+functions.firestore.document('customers/{customerId}')
 
-    .onDelete(snapshot => 
+    .onDelete(snapshot =>
         index.deleteObject(snapshot.id)
     );
+
 {{< /highlight >}}
 
 ### Deploy
 
-Deploy your functions and test them from the Firebase console, or follow the seeding instructions in the next section. 
+Deploy your functions and test them from the Firebase console, or follow the
+seeding instructions in the next section.
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-firebase deploy --only functions
-{{< /highlight >}}
+{{< file "terminal" "command line" >}} {{< highlight text >}} firebase deploy
+--only functions {{< /highlight >}}
 
 ## Optional: Seed the Database
 
-In the video you saw how I quickly seeded Firestore with dummy data, which was accomplished with [Faker](https://github.com/marak/Faker.js/) and the Firebase Admin SDK. Create a vanilla node script in the functions directory that sends writes to the database. 
+In the video you saw how I quickly seeded Firestore with dummy data, which was
+accomplished with [Faker](https://github.com/marak/Faker.js/) and the Firebase
+Admin SDK. Create a vanilla node script in the functions directory that sends
+writes to the database.
 
-{{< file "js" "functions/seed.js" >}}
-{{< highlight javascript >}}
-const admin = require('firebase-admin');
-admin.initializeApp();
+{{< file "js" "functions/seed.js" >}} {{< highlight javascript >}} const admin =
+require('firebase-admin'); admin.initializeApp();
 
 const faker = require('faker');
 
 const db = admin.firestore();
 
-const fakeIt = () => {
-    return db.collection('customers').add({
-        username: faker.internet.userName(),
-        avatar: faker.internet.avatar(),
-        bio: faker.hacker.phrase()
-    });
-}
+const fakeIt = () => { return db.collection('customers').add({ username:
+faker.internet.userName(), avatar: faker.internet.avatar(), bio:
+faker.hacker.phrase() }); }
 
-Array(20).fill(0).forEach(fakeIt);
-{{< /highlight >}}
+Array(20).fill(0).forEach(fakeIt); {{< /highlight >}}
 
 Run the script from the command line like so:
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-cd functions
-node seed.js
-{{< /highlight >}}
+{{< file "terminal" "command line" >}} {{< highlight text >}} cd functions node
+seed.js {{< /highlight >}}
 
-{{< box icon="scroll" class="box-blue" >}}
-This post first appeared as [Episode 109 Algolia Firestore on AngularFirebase.com](https://angularfirebase.com/lessons/algolia-firestore-quickstart-with-firebase-cloud-functions/) and has been fully updated with the latest best practices. 
-{{< /box >}}
+{{< box icon="scroll" class="box-blue" >}} This post first appeared as
+[Episode 109 Algolia Firestore on AngularFirebase.com](https://angularfirebase.com/lessons/algolia-firestore-quickstart-with-firebase-cloud-functions/)
+and has been fully updated with the latest best practices. {{< /box >}}

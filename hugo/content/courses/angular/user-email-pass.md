@@ -9,124 +9,76 @@ emoji: 📧
 video_length: 11:32
 ---
 
-- Official [Reactive Forms Docs](https://angular.io/api/forms/ReactiveFormsModule)
-
-
+- Official
+  [Reactive Forms Docs](https://angular.io/api/forms/ReactiveFormsModule)
 
 ## Steps
 
 ### Step 1 - Initial Setup
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-ng g component user/email-login
-{{< /highlight >}}
+{{< file "terminal" "command line" >}} {{< highlight text >}} ng g component
+user/email-login {{< /highlight >}}
 
 Your user module should look similer to this:
 
-{{< file "ngts" "user.module.ts" >}}
-{{< highlight typescript >}}
-import { ReactiveFormsModule } from '@angular/forms';
-import { EmailLoginComponent } from './email-login/email-login.component';
+{{< file "ngts" "user.module.ts" >}} {{< highlight typescript >}} import {
+ReactiveFormsModule } from '@angular/forms'; import { EmailLoginComponent } from
+'./email-login/email-login.component';
 
-@NgModule({
-  declarations: [LoginPageComponent, GoogleSigninDirective, EmailLoginComponent],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
-})
-export class UserModule { }
-{{< /highlight >}}
+@NgModule({ declarations: [LoginPageComponent, GoogleSigninDirective,
+EmailLoginComponent], imports: [ CommonModule, UserRoutingModule, SharedModule,
+ReactiveFormsModule ] }) export class UserModule { } {{< /highlight >}}
 
 Make sure to declare the form in the login page for unauthenticated users.
 
-{{< file "html" "login-page.component.html" >}}
-{{< highlight html >}}
+{{< file "html" "login-page.component.html" >}} {{< highlight html >}}
+
 <div *ngIf="!(afAuth.authState | async)">
   <!-- omitted -->
 
-  <app-email-login></app-email-login>
+<app-email-login></app-email-login>
+
 </div>
 {{< /highlight >}}
 
 ### Step 2 - Typescript Logic
 
-{{< file "ngts" "email-login.component.ts" >}}
-{{< highlight typescript >}}
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/auth';
+{{< file "ngts" "email-login.component.ts" >}} {{< highlight typescript >}}
+import { Component, OnInit } from '@angular/core'; import { FormBuilder,
+FormGroup, Validators, } from '@angular/forms'; import { AngularFireAuth } from
+'@angular/fire/auth';
 
-@Component({
-  selector: 'app-email-login',
-  templateUrl: './email-login.component.html',
-  styleUrls: ['./email-login.component.scss']
-})
-export class EmailLoginComponent implements OnInit {
-  form: FormGroup;
+@Component({ selector: 'app-email-login', templateUrl:
+'./email-login.component.html', styleUrls: ['./email-login.component.scss'] })
+export class EmailLoginComponent implements OnInit { form: FormGroup;
 
-  type: 'login' | 'signup' | 'reset' = 'signup';
-  loading = false;
+type: 'login' | 'signup' | 'reset' = 'signup'; loading = false;
 
-  serverMessage: string;
+serverMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) {}
+constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) {}
 
-  ngOnInit() {
-    this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [Validators.minLength(6), Validators.required]
-      ],
-      passwordConfirm: ['', []]
-    });
-  }
+ngOnInit() { this.form = this.fb.group({ email: ['', [Validators.required,
+Validators.email]], password: [ '', [Validators.minLength(6),
+Validators.required] ], passwordConfirm: ['', []] }); }
 
-  changeType(val) {
-    this.type = val;
-  }
+changeType(val) { this.type = val; }
 
-  get isLogin() {
-    return this.type === 'login';
-  }
+get isLogin() { return this.type === 'login'; }
 
-  get isSignup() {
-    return this.type === 'signup';
-  }
+get isSignup() { return this.type === 'signup'; }
 
-  get isPasswordReset() {
-    return this.type === 'reset';
-  }
+get isPasswordReset() { return this.type === 'reset'; }
 
-  get email() {
-    return this.form.get('email');
-  }
-  get password() {
-    return this.form.get('password');
-  }
+get email() { return this.form.get('email'); } get password() { return
+this.form.get('password'); }
 
-  get passwordConfirm() {
-    return this.form.get('passwordConfirm');
-  }
+get passwordConfirm() { return this.form.get('passwordConfirm'); }
 
-  get passwordDoesMatch() {
-    if (this.type !== 'signup') {
-      return true;
-    } else {
-      return this.password.value === this.passwordConfirm.value;
-    }
-  }
+get passwordDoesMatch() { if (this.type !== 'signup') { return true; } else {
+return this.password.value === this.passwordConfirm.value; } }
 
-  async onSubmit() {
-    this.loading = true;
+async onSubmit() { this.loading = true;
 
     const email = this.email.value;
     const password = this.password.value;
@@ -147,22 +99,23 @@ export class EmailLoginComponent implements OnInit {
     }
 
     this.loading = false;
-  }
-}
+
+} }
 
 {{< /highlight >}}
 
 ### Step 3 - Form Template
 
-{{< file "html" "email-login.component.html" >}}
-{{< highlight html >}}
+{{< file "html" "email-login.component.html" >}} {{< highlight html >}}
 <mat-card>
+
   <div *ngIf="isSignup">
     <h3>Create Account</h3>
 
     <button mat-stroked-button (click)="changeType('login')">
       Returning user?
     </button>
+
   </div>
 
   <div *ngIf="isLogin">
@@ -243,21 +196,21 @@ export class EmailLoginComponent implements OnInit {
     >
       Submit
     </button>
+
   </form>
 
-  <button
-    mat-button
-    *ngIf="isLogin && !isPasswordReset"
-    (click)="changeType('reset')"
-  >
+<button mat-button \*ngIf="isLogin && !isPasswordReset"
+(click)="changeType('reset')"
+
+>
+
     Forgot password?
+
   </button>
 </mat-card>
 {{< /highlight >}}
 
-
 ## Bonus Video
-
 
 <div class="vid-center">
 {{< youtube JeeUY6WaXiA >}}

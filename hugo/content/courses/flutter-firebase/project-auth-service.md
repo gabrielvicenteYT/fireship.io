@@ -9,4 +9,6 @@ vimeo: 336343322
 video_length: 5:32
 ---
 
-Note: If you experience issues with Google Auth, revisit the [Firebase Setup](/courses/flutter-firebase/intro-firebase-setup/) section to ensure the SHA fingerprint has been setup on your local machine. 
+Note: If you experience issues with Google Auth, revisit the
+[Firebase Setup](/courses/flutter-firebase/intro-firebase-setup/) section to
+ensure the SHA fingerprint has been setup on your local machine.

@@ -9,11 +9,11 @@ vimeo: 331445271
 video_length: 3:25
 ---
 
-Sample Firestore rules for Role-based Authorization where the user document determines the access level. 
+Sample Firestore rules for Role-based Authorization where the user document
+determines the access level.
 
-{{< file "firebase" "rules.json" >}}
-{{< highlight js >}}
-match /posts/{document} {
+{{< file "firebase" "rules.json" >}} {{< highlight js >}} match
+/posts/{document} {
 
     function getRoles() {
         return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles;
@@ -22,5 +22,5 @@ match /posts/{document} {
     allow read;
     allow update: if getRoles().hasAny(['admin', 'editor']) == true;
     allow write: if getRoles().hasAny(['admin']) == true;
-}
-{{< /highlight >}}
+
+} {{< /highlight >}}

@@ -11,16 +11,7 @@ video_length: 2:13
 
 ## Example Code
 
-{{< file "dart" "main.dart" >}}
-{{< highlight dart >}}
-//...
-         child: GestureDetector(
-           onTapDown: (details) => print(details.globalPosition.dx),
-           child: Container(
-             width: 100,
-             height: 100,
-             color: Colors.red
-           ),
-         ),
-//...
+{{< file "dart" "main.dart" >}} {{< highlight dart >}} //... child:
+GestureDetector( onTapDown: (details) => print(details.globalPosition.dx),
+child: Container( width: 100, height: 100, color: Colors.red ), ), //...
 {{< /highlight >}}

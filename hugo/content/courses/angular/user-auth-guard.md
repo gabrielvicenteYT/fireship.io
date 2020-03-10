@@ -9,37 +9,27 @@ emoji: 👮
 video_length: 4:59
 ---
 
-Use a router guard to protect routes from unauthorized users and show a snackbar error message. 
+Use a router guard to protect routes from unauthorized users and show a snackbar
+error message.
 
-## Steps 
+## Steps
 
 ### Step 1 - Generate the Guard
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-ng g guard user/auth
-{{< /highlight >}}
+{{< file "terminal" "command line" >}} {{< highlight text >}} ng g guard
+user/auth {{< /highlight >}}
 
-{{< file "ngts" "auth.guard.ts" >}}
-{{< highlight typescript >}}
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { SnackService } from '../services/snack.service';
+{{< file "ngts" "auth.guard.ts" >}} {{< highlight typescript >}} import {
+Injectable } from '@angular/core'; import { CanActivate, ActivatedRouteSnapshot,
+RouterStateSnapshot } from '@angular/router'; import { AngularFireAuth } from
+'@angular/fire/auth'; import { SnackService } from '../services/snack.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthGuard implements CanActivate {
-  constructor(
-    private afAuth: AngularFireAuth,
-    private snack: SnackService
-  ) {}
+@Injectable({ providedIn: 'root' }) export class AuthGuard implements
+CanActivate { constructor( private afAuth: AngularFireAuth, private snack:
+SnackService ) {}
 
-  async canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Promise<boolean> {
+async canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot ):
+Promise<boolean> {
 
     const user = await this.afAuth.auth.currentUser;
     const isLoggedIn = !!user;
@@ -47,37 +37,29 @@ export class AuthGuard implements CanActivate {
       this.snack.authError();
     }
     return isLoggedIn;
-  }
-}
+
+} }
 
 {{< /highlight >}}
 
 ### Step 2 - Show a SnackBar
 
-Generate a global service that can be used to show snack bar message from any component. 
+Generate a global service that can be used to show snack bar message from any
+component.
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-ng g service services/snack
-{{< /highlight >}}
+{{< file "terminal" "command line" >}} {{< highlight text >}} ng g service
+services/snack {{< /highlight >}}
 
-{{< file "ngts" "snack.service.ts" >}}
-{{< highlight typescript >}}
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { tap } from 'rxjs/operators';
+{{< file "ngts" "snack.service.ts" >}} {{< highlight typescript >}} import {
+Injectable } from '@angular/core'; import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar'; import { tap } from
+'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class SnackService {
-  constructor(private snackBar: MatSnackBar, private router: Router) {}
+@Injectable({ providedIn: 'root' }) export class SnackService {
+constructor(private snackBar: MatSnackBar, private router: Router) {}
 
-  authError() {
-    this.snackBar.open('You must be logged in!', 'OK', {
-      duration: 5000
-    });
+authError() { this.snackBar.open('You must be logged in!', 'OK', { duration:
+5000 });
 
     return this.snackBar._openedSnackBarRef
       .onAction()
@@ -87,7 +69,7 @@ export class SnackService {
         )
       )
       .subscribe();
-  }
-}
+
+} }
 
 {{< /highlight >}}

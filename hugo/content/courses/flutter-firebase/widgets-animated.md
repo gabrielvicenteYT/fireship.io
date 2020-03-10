@@ -11,51 +11,26 @@ video_length: 2:42
 
 ## Example Code
 
-{{< file "dart" "main.dart" >}}
-{{< highlight dart >}}
-import 'dart:math';
+{{< file "dart" "main.dart" >}} {{< highlight dart >}} import 'dart:math';
 
-
-class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return MaterialApp(
-     home: Scaffold(
-       body: Center(
-         child: CoolBox(),
-       )
-     ),
-   );
- }
+class MyApp extends StatelessWidget { @override Widget build(BuildContext
+context) { return MaterialApp( home: Scaffold( body: Center( child: CoolBox(), )
+), ); }
 
 }
 
-class CoolBox extends StatefulWidget {
- const CoolBox({
-   Key key,
- }) : super(key: key);
+class CoolBox extends StatefulWidget { const CoolBox({ Key key, }) : super(key:
+key);
 
- @override
- _CoolBoxState createState() => _CoolBoxState();
-}
+@override \_CoolBoxState createState() => \_CoolBoxState(); }
 
-class _CoolBoxState extends State<CoolBox> {
+class \_CoolBoxState extends State<CoolBox> {
 
- double width = 100;
- double height = 100;
- Color color = Colors.green;
+double width = 100; double height = 100; Color color = Colors.green;
 
- @override
- Widget build(BuildContext context) {
-   return AnimatedContainer(
-     duration: Duration(seconds: 2),
-     curve: Curves.bounceInOut,
-     color: color,
-     width: width,
-     height: height,
-     child: FlatButton(
-       child: Text('Random'),
-       onPressed: () {
+@override Widget build(BuildContext context) { return AnimatedContainer(
+duration: Duration(seconds: 2), curve: Curves.bounceInOut, color: color, width:
+width, height: height, child: FlatButton( child: Text('Random'), onPressed: () {
 
          setState(() {
            width = Random().nextDouble() * 400;
@@ -67,12 +42,12 @@ class _CoolBoxState extends State<CoolBox> {
            color = Color.fromRGBO(r, b, g, 1);
          });
 
-        
+
        },
      )
-   );
- }
 
- }
+); }
+
+}
 
 {{< /highlight >}}

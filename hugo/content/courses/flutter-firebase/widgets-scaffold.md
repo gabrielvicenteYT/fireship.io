@@ -11,24 +11,13 @@ video_length: 2:35
 
 ## Example Code
 
-{{< file "dart" "main.dart" >}}
-{{< highlight dart >}}
-class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return MaterialApp(
-     home: Scaffold(
-       appBar: AppBar(title: Text('My Cool App'),),
-       body: Center(child: Icon(Icons.cake),),
-       floatingActionButton: FloatingActionButton(onPressed: () {}),
-       drawer: Drawer(),
-       bottomNavigationBar: BottomNavigationBar(items: [
-         BottomNavigationBarItem(title: Text('foo'), icon: Icon(Icons.call)),
-         BottomNavigationBarItem(title: Text('bar'), icon: Icon(Icons.cached))
-       ]),
-     ),
-   );
- }
-}
+{{< file "dart" "main.dart" >}} {{< highlight dart >}} class MyApp extends
+StatelessWidget { @override Widget build(BuildContext context) { return
+MaterialApp( home: Scaffold( appBar: AppBar(title: Text('My Cool App'),), body:
+Center(child: Icon(Icons.cake),), floatingActionButton:
+FloatingActionButton(onPressed: () {}), drawer: Drawer(), bottomNavigationBar:
+BottomNavigationBar(items: [ BottomNavigationBarItem(title: Text('foo'), icon:
+Icon(Icons.call)), BottomNavigationBarItem(title: Text('bar'), icon:
+Icon(Icons.cached)) ]), ), ); } }
 
 {{< /highlight >}}

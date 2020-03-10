@@ -9,16 +9,15 @@ vimeo: 331445138
 video_length: 2:26
 ---
 
-Sample Firestore security rules for an Access Control List (ACL), where the content determines which users have authorization. 
+Sample Firestore security rules for an Access Control List (ACL), where the
+content determines which users have authorization.
 
-{{< file "firebase" "rules.json" >}}
-{{< highlight js >}}
-match /posts/{document} {
+{{< file "firebase" "rules.json" >}} {{< highlight js >}} match
+/posts/{document} {
 
     allow read;
     allow write: if resource.data.members.hasAny(request.auth.uid);
 
-}
-{{< /highlight >}}
+} {{< /highlight >}}
 
 {{< figure src="/courses/firestore-data-modeling/img/ACL.png" caption="example of an Access Control List in Firestore"  >}}

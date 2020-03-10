@@ -7,61 +7,54 @@ draft: false
 description: Send transactional email from Vue with SendGrid
 type: lessons
 # pro: true
-tags: 
-    - vue
-    - sendgrid
+tags:
+  - vue
+  - sendgrid
 
 vimeo: 346869657
 github: https://github.com/fireship-io/196-sendgrid-email-cloud-functions
-# youtube: 
-# code: 
+# youtube:
+# code:
 # disable_toc: true
 # disable_qna: true
 
 # courses
 # step: 0
 
-# versions: 
+# versions:
 #     - "rxjs": 6.3
 
 # chapters:
-
----
-
-{{< box emoji="👀" >}}
-This tutorial is an extension of the [SendGrid Transactional Email Guide](/lessons/sendgrid-transactional-email-guide/). You must have the Cloud Functions deployed to start sending email from your frontend app. 
-{{< /box >}}
-
+---{{< box emoji="👀" >}} This tutorial is an extension of the
+[SendGrid Transactional Email Guide](/lessons/sendgrid-transactional-email-guide/).
+You must have the Cloud Functions deployed to start sending email from your
+frontend app. {{< /box >}}
 
 ## Initial Setup
 
-Start by installing the [Firebase Web SDK](https://firebase.google.com/docs/web/setup), then initialize the packages in the root of the project.  Vuefire can be installed as well, but is not required for this feature. 
+Start by installing the
+[Firebase Web SDK](https://firebase.google.com/docs/web/setup), then initialize
+the packages in the root of the project. Vuefire can be installed as well, but
+is not required for this feature.
 
-{{< file "js" "firebase.js" >}}
-{{< highlight javascript >}}
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/functions';
+{{< file "js" "firebase.js" >}} {{< highlight javascript >}} import firebase
+from 'firebase/app'; import 'firebase/auth'; import 'firebase/functions';
 
-const config = {
- // your firebase config
-}
+const config = { // your firebase config }
 
 firebase.initializeApp(config);
 
-export const app = firebase.app();
-export const auth = firebase.auth();
-export const functions = firebase.functions();
-{{< /highlight >}}
-
+export const app = firebase.app(); export const auth = firebase.auth(); export
+const functions = firebase.functions(); {{< /highlight >}}
 
 ## Transactional Email Component
 
-The [Vue](https://vuejs.org/) component uses the `beforeCreate` lifecycle hook to monintor to the user's auth state, while `sendEmail` references the callable function deployed to Firebase.
+The [Vue](https://vuejs.org/) component uses the `beforeCreate` lifecycle hook
+to monintor to the user's auth state, while `sendEmail` references the callable
+function deployed to Firebase.
 
-{{< file "vue" "HelloWorld.vue" >}}
-{{< highlight html >}}
-<template>
+{{< file "vue" "HelloWorld.vue" >}} {{< highlight html >}} <template>
+
 <div>
 
   <div v-if="user">
@@ -108,4 +101,5 @@ export default {
   }
 }
 </script>
+
 {{< /highlight >}}

@@ -12,12 +12,9 @@ video_length: 2:30
 
 ## Example Code
 
-{{< file "dart" "main.dart" >}}
-{{< highlight dart >}}
-class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return MaterialApp(
+{{< file "dart" "main.dart" >}} {{< highlight dart >}} class MyApp extends
+StatelessWidget { @override Widget build(BuildContext context) { return
+MaterialApp(
 
      theme: ThemeData(
        brightness: Brightness.light,
@@ -29,19 +26,10 @@ class MyApp extends StatelessWidget {
      ),
 
      home: HomeScreen(),
-   );
- }
-}
 
-class HomeScreen extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return Scaffold(
-     appBar: AppBar(),
-     body: Center(
-       child: Text('Hello World', style: Theme.of(context).textTheme.headline,),
-     )
-   );
- }
-}
+); } }
+
+class HomeScreen extends StatelessWidget { @override Widget build(BuildContext
+context) { return Scaffold( appBar: AppBar(), body: Center( child: Text('Hello
+World', style: Theme.of(context).textTheme.headline,), ) ); } }
 {{< /highlight >}}

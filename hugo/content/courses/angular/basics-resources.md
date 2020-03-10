@@ -7,7 +7,7 @@ draft: false
 vimeo: 359322932
 emoji: 📜
 free: true
-chapter_start: Intro 
+chapter_start: Intro
 video_length: 1:51
 ---
 
@@ -19,11 +19,14 @@ video_length: 1:51
 
 ## Highly Recommended Supplementary Videos
 
-While not required, I highly recommend watching the following YouTube videos to get familiar with RxJS and TypeScript. 
+While not required, I highly recommend watching the following YouTube videos to
+get familiar with RxJS and TypeScript.
 
 - [TypeScript - The Basics](https://youtu.be/ahCwqrYpIuM)
 - [RxJS Top Ten Concepts](https://youtu.be/ewcoEYS85Co)
 
 ## Social
+
 - [Slack Chat](https://goo.gl/8BKA1e)
-- [YouTube](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA) & [Twitter](https://twitter.com/fireship_dev)
+- [YouTube](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA) &
+  [Twitter](https://twitter.com/fireship_dev)

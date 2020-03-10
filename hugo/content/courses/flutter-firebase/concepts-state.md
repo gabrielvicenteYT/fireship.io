@@ -9,50 +9,33 @@ vimeo: 336144998
 video_length: 3:21
 ---
 
-Note: The code below is updated for *Provider* version `3.1`. The main change is that the `stream` param has been renamed to `value`. 
+Note: The code below is updated for _Provider_ version `3.1`. The main change is
+that the `stream` param has been renamed to `value`.
 
 ## Example Code
 
-{{< file "dart" "main.dart" >}}
-{{< highlight dart >}}
-import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:provider/provider.dart';
+{{< file "dart" "main.dart" >}} {{< highlight dart >}} import
+'package:flutter/material.dart'; import
+'package:cloud_firestore/cloud_firestore.dart'; import
+'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
-class UserModel {
- String name = 'Bob';
-}
+class UserModel { String name = 'Bob'; }
 
 var stream = Stream.fromIterable([UserModel()]);
 
-class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return StreamProvider<UserModel>.value(
-     value: stream,
-     child: MaterialApp(
-       home: HomeScreen(),
-     ),
-   );
- }
-}
+class MyApp extends StatelessWidget { @override Widget build(BuildContext
+context) { return StreamProvider<UserModel>.value( value: stream, child:
+MaterialApp( home: HomeScreen(), ), ); } }
 
-class HomeScreen extends StatelessWidget {
- final Firestore db = Firestore.instance;
+class HomeScreen extends StatelessWidget { final Firestore db =
+Firestore.instance;
 
- @override
- Widget build(BuildContext context) {
+@override Widget build(BuildContext context) {
 
-   var user = Provider.of<UserModel>(context);
+var user = Provider.of<UserModel>(context);
 
-   return Scaffold(
-     body: Center(
-       child: Text(user.name),
-     ),
-   );
- }
-}
+return Scaffold( body: Center( child: Text(user.name), ), ); } }
 
 {{< /highlight >}}

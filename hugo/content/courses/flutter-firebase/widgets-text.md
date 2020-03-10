@@ -11,35 +11,11 @@ video_length: 2:40
 
 ## Example Code
 
-{{< file "dart" "main.dart" >}}
-{{< highlight dart >}}
-class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return MaterialApp(
-     home: Scaffold(
-       body: Center(
-         child: Row(
-           children: <Widget>[
-             Expanded(
-               child: Container(
-                 height: 100,
-                 child: Text(
-                   'Hello World this is too long',
-                   overflow: TextOverflow.ellipsis,
-                   style: TextStyle(
-                     fontSize: 50,
-                     fontWeight: FontWeight.bold,
-                   ),
-                 ),
-               ),
-             ),
-           ],
-         ),
-       ),
-     ),
-   );
- }
-}
+{{< file "dart" "main.dart" >}} {{< highlight dart >}} class MyApp extends
+StatelessWidget { @override Widget build(BuildContext context) { return
+MaterialApp( home: Scaffold( body: Center( child: Row( children: <Widget>[
+Expanded( child: Container( height: 100, child: Text( 'Hello World this is too
+long', overflow: TextOverflow.ellipsis, style: TextStyle( fontSize: 50,
+fontWeight: FontWeight.bold, ), ), ), ), ], ), ), ), ); } }
 
 {{< /highlight >}}

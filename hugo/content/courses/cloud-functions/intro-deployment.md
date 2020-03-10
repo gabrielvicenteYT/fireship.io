@@ -10,11 +10,9 @@ weight: 5
 emoji: 👶
 ---
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-firebase deploy --only functions
+{{< file "terminal" "command line" >}} {{< highlight text >}} firebase deploy
+--only functions
 
-# or 
+# or
 
-firebase deploy --only functions:your-function-name
-{{< /highlight >}}
+firebase deploy --only functions:your-function-name {{< /highlight >}}

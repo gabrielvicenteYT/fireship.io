@@ -13,27 +13,20 @@ Create a server module using Angular Universal with the NestJS schematic.
 
 [Nest Universal Schematic](https://github.com/nestjs/ng-universal)
 
-## Steps 
+## Steps
 
 ### Add Universal and Nest
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-ng add @nestjs/ng-universal
+{{< file "terminal" "command line" >}} {{< highlight text >}} ng add
+@nestjs/ng-universal
 
-npm run build:ssr
-npm run serve:ssr
-{{< /highlight >}}
+npm run build:ssr npm run serve:ssr {{< /highlight >}}
 
-{{< file "ngts" "server/main.ts" >}}
-{{< highlight typescript >}}
-import { NestFactory } from '@nestjs/core';
-import { ApplicationModule } from './app.module';
+{{< file "ngts" "server/main.ts" >}} {{< highlight typescript >}} import {
+NestFactory } from '@nestjs/core'; import { ApplicationModule } from
+'./app.module';
 
-async function bootstrap() {
-  const app = await NestFactory.create(ApplicationModule);
-  app.setGlobalPrefix('api');
-  await app.listen(process.env.PORT || 8080); // <-- update this line
-}
-bootstrap();
+async function bootstrap() { const app = await
+NestFactory.create(ApplicationModule); app.setGlobalPrefix('api'); await
+app.listen(process.env.PORT || 8080); // <-- update this line } bootstrap();
 {{< /highlight >}}

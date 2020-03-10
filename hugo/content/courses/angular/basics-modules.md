@@ -10,27 +10,12 @@ free: true
 video_length: 2:41
 ---
 
-{{< file "terminal" "command line" >}}
-{{< highlight text >}}
-ng generate module cool
-{{< /highlight >}}
+{{< file "terminal" "command line" >}} {{< highlight text >}} ng generate module
+cool {{< /highlight >}}
 
-Get comfortable with declarations, imports, and exports. 
+Get comfortable with declarations, imports, and exports.
 
-{{< file "ngts" "some.module.ts" >}}
-{{< highlight typescript >}}
-@NgModule({
-  // Components defined in this module
-  declarations: [
-    FooComponent
-  ],
-  // Components used in this module
-  imports: [
-    CommonModule
-  ],
-  // Components that can be imported by other modules
-  exports: [
-    FooComponent
-  ],
-})
-{{< /highlight >}}
+{{< file "ngts" "some.module.ts" >}} {{< highlight typescript >}} @NgModule({ //
+Components defined in this module declarations: [ FooComponent ], // Components
+used in this module imports: [ CommonModule ], // Components that can be
+imported by other modules exports: [ FooComponent ], }) {{< /highlight >}}
