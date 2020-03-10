@@ -11,7 +11,7 @@
         "npm --prefix ./functions run build"
       ]
     },
-    "redirects": [ 
+    "redirects": [
       {
         "source": "/lessons/angular-file-uploads-to-firebase-storage",
         "destination": "/lessons/angular-firebase-storage-uploads-multi",
@@ -146,7 +146,8 @@
         "source": "/lessons/typescript-with-firebase-cloud-functions",
         "destination": "/courses/cloud-functions",
         "type": 301
-      },      {
+      },
+      {
         "source": "/lessons/role-based-permissions-and-authorization-with-firebase-auth",
         "destination": "/lessons/role-based-authorization-with-firestore-nosql-and-angular-5",
         "type": 301
@@ -160,7 +161,8 @@
         "source": "/lessons/firebase-with-angular-ngrx-redux",
         "destination": "/lessons/angular-ngrx-redux-starter-guide",
         "type": 301
-      },      {
+      },
+      {
         "source": "/lessons/ngrx-with-firebase-auth-google-oauth-login",
         "destination": "/lessons/angular-ngrx-redux-starter-guide",
         "type": 301
@@ -199,7 +201,8 @@
         "source": "/lessons/chatbot-in-angular-with-dialogflow-api-ai",
         "destination": "/lessons/build-a-chatbot-with-dialogflow",
         "type": 301
-      },      {
+      },
+      {
         "source": "/lessons/dialogflow-with-firebase-cloud-functions",
         "destination": "/lessons/build-a-chatbot-with-dialogflow",
         "type": 301
@@ -213,19 +216,17 @@
         "source": "/lessons/ngrx-with-angularfire-version-5-firestore",
         "destination": "/lessons/angular-ngrx-redux-starter-guide",
         "type": 301
-      }, 
+      },
       {
         "source": "/lessons/shorten-typescript-imports-in-an-angular-project",
         "destination": "/snippets/improving-long-relative-paths-imports",
         "type": 301
       },
-
       {
         "source": "/lessons/firestore-with-angularfire-basics",
         "destination": "/tags/firestore",
         "type": 301
       },
-
       {
         "source": "/lessons/hnpwa-angular-5-progressive-web-app-service-worker-tutorial",
         "destination": "/courses/angular",
@@ -251,7 +252,6 @@
         "destination": "/courses/firestore-data-modeling",
         "type": 301
       },
-
       {
         "source": "/lessons/generate-a-custom-spash-screen-and-icons-in-ionic",
         "destination": "/courses/ionic",
@@ -326,7 +326,7 @@
         "source": "/lessons/google-assistant-quick-start/",
         "destination": "/tags/dialogflow",
         "type": 301
-      },     
+      },
       {
         "source": "/lessons/airtable-firebase-customer-relationship-management",
         "destination": "/",
@@ -376,7 +376,8 @@
         "source": "/lessons/angular-console-quick-start-guide",
         "destination": "/tags/angular",
         "type": 301
-      },      {
+      },
+      {
         "source": "/lessons/how-to-use-puppeteer-on-firebase-cloud-functions/",
         "destination": "/lessons/web-scraping-guide/",
         "type": 301
@@ -420,7 +421,8 @@
         "source": "/lessons/hold-to-delete-button-angular-directive-with-firestore",
         "destination": "/courses/angular",
         "type": 301
-      },      {
+      },
+      {
         "source": "/snippets/how-manage-shared-components-in-an-ionic-4-app",
         "destination": "/courses/ionic",
         "type": 301
@@ -444,7 +446,8 @@
         "source": "/snippets/how-to-format-document-data-for-the-firestore-rest-api",
         "destination": "/snippets",
         "type": 301
-      },      {
+      },
+      {
         "source": "/snippets/angularfire-migration-from-v4-to-v5-guide",
         "destination": "/snippets",
         "type": 301
@@ -455,6 +458,5 @@
         "type": 301
       }
     ]
-
   }
 }
