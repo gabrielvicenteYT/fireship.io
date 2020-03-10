@@ -257,7 +257,7 @@ destroyed.
 
 <!-- User NOT logged in -->
 
-<ng-template #guest> <h3>Howdy, GUEST</h3> <p>Login to get started...</p>   
+<ng-template #guest> <h3>Howdy, GUEST</h3> <p>Login to get started...</p>
  <button (click)="auth.googleSignin()"> <i class="fa fa-google"></i> Connect Google
 </button>
 

@@ -9,7 +9,7 @@ vimeo: 330792111
 video_length: 1:22
 ---{{< file "firebase" "rules.json" >}} {{< highlight javascript >}} service
 cloud.firestore { match /databases/{database}/documents { match /{document=\*\*}
-{ allow read, write: if false; }   
+{ allow read, write: if false; }
  match /accounts/{id} { allow read, write: if false; }
 
     match /users/{id} {
@@ -21,5 +21,5 @@ cloud.firestore { match /databases/{database}/documents { match /{document=\*\*}
       allow write: if id == request.auth.uid;
     }
 
-} }   
+} }
 {{< /highlight >}}

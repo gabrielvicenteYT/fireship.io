@@ -176,7 +176,7 @@ Update the board component template to open the dialog.
 
 {{< file "html" "board.component.html" >}} {{< highlight html >}}
 
-<div 
+<div
     class="inner-card"
     cdkDrag
     *ngFor="let task of board.tasks; let i = index"

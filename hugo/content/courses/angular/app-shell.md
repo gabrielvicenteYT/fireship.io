@@ -57,7 +57,7 @@ Full markup for the navigation shell.
 [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$
 | async) ? 'over' : 'side'" [opened]="false"> <mat-toolbar>Menu</mat-toolbar>
-<mat-nav-list>   
+<mat-nav-list>
  <a mat-list-item routerLink="/" (click)="drawer.close()">Home</a> <a mat-list-item
 routerLink="/login" (click)="drawer.close()">Login</a> <a mat-list-item routerLink="/kanban"
 (click)="drawer.close()">Kanban Demo</a> <a mat-list-item routerLink="/customers"

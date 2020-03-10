@@ -185,7 +185,7 @@ the screen, then scrape the _src_ attribute from them.
 require('puppeteer');
 
 const scrapeImages = async (username) => { const browser = await
-puppeteer.launch( { headless: true }); const page = await browser.newPage();   
+puppeteer.launch( { headless: true }); const page = await browser.newPage();
  await page.goto('https://www.instagram.com/accounts/login/');
 
     // Login form

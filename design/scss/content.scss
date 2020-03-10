@@ -37,9 +37,9 @@
 }
 
 .snippet-list-link {
-  text-decoration: none; 
-  margin-bottom: 10px; 
-  text-align: left; display: block; 
+  text-decoration: none;
+  margin-bottom: 10px;
+  text-align: left; display: block;
   padding: 1em;
 }
 
@@ -123,7 +123,7 @@
 .box-sm {
   font-size: 0.9em;
   min-height: 0;
-  
+
   margin: 0;
   .box-content {
 
@@ -159,7 +159,7 @@
   // width: 100%;
   left: 4em;
   right: 1em;
-  bottom: 2em;  
+  bottom: 2em;
   z-index: 9999;
   margin: 0;
   opacity: 0.95;
@@ -257,7 +257,7 @@
     line-height: 1.8;
   }
 
-  em { 
+  em {
     font-weight: bold;
   }
 
@@ -304,7 +304,7 @@
       margin: 0;
       li {
         padding: 0.5em 0.5em;
-        
+
         a {
           color: var(--blue);
           font-weight: 500;
@@ -317,7 +317,7 @@
         }
       }
     }
-    ul li ul { //    ul li ul li ul, 
+    ul li ul { //    ul li ul li ul,
       font-size: 0.75em;
       font-weight: 500;
 
@@ -433,7 +433,7 @@ video, video-player, .video-overlay {
     margin-left: auto;
     margin-right: 1rem;
   }
-  
+
 }
 
 .home-features {
@@ -560,10 +560,10 @@ video, video-player, .video-overlay {
 }
 
 .brand-list {
-  display: flex; 
+  display: flex;
   list-style-type: none;
-  justify-content: space-between; 
-  align-items: center; flex-direction: row; 
+  justify-content: space-between;
+  align-items: center; flex-direction: row;
   list-style: none;
   margin: 10px 5vw;
   li {
@@ -592,7 +592,7 @@ video, video-player, .video-overlay {
     &.disabled {
       background: none;
     }
-    a { 
+    a {
       color: var(--text-color);
       padding: 1em 2em;
     }

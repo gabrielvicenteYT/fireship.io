@@ -311,7 +311,7 @@ backend database. It cannot be retrieved after the widget is destroyed.
 
 {{< file "dart" "main.dart" >}} {{< highlight dart >}} /// Spend credits and
 consume purchase when they run pit void \_spendCredits(PurchaseDetails purchase)
-async {   
+async {
  /// Decrement credits setState(() { \_credits--; });
 
     /// TODO update the state of the consumable to a backend database

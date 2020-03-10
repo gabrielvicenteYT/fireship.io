@@ -47,7 +47,7 @@ development utility that you can extend with additional functionality.
 </div>
 
 <div class="pro-basic">
-<p class="success">Full source code for the [Firestore migrator CLI tool](https://github.com/codediodeio/firestore-migrator).</p> 
+<p class="success">Full source code for the [Firestore migrator CLI tool](https://github.com/codediodeio/firestore-migrator).</p>
 </div>
 
 ## Step 1 - Initial Setup

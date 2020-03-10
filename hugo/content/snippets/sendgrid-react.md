@@ -70,7 +70,7 @@ function signInUI() { return ( <div> <button onClick={() =>
 auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())}>SignIn with
 Google</button> </div> ) }
 
-function signOutUI(user) { return ( <div>   
+function signOutUI(user) { return ( <div>
  <p>{ JSON.stringify(user) }</p>
 
       <hr />

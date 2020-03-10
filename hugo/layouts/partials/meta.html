@@ -2,7 +2,7 @@
 
 {{ if not (fileExists (print .RelPermalink "img/featured.png")) }}
     {{ $img = .Site.Data.defaults.featured_img }}
-{{ end }} 
+{{ end }}
 
 
 {{ if .Params.featured_img }}

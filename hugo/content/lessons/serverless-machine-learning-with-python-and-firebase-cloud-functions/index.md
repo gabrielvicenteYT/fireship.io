@@ -39,7 +39,7 @@ milestones:
    [Firebase Cloud Functions](https://firebase.google.com/docs/functions/)
 
 <p class="success">Looking to train your data in a Firebase Cloud Function with TensorFlow.js? Checkout this [Radi Cho's demo](https://github.com/radi-cho/tfjs-firebase).</p>
- 
+
 ## Setting Up Datalab
 
 Datalab is an environment built on top of Google Compute Engine that allows you

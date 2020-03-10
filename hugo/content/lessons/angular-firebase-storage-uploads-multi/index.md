@@ -72,7 +72,7 @@ progress::-webkit-progress-value { transition: width 0.1s ease; }
 {{< box icon="scroll" class="box-green" >}} Want to skip this step? Consider
 using this zero-dependency
 [file-drop](https://github.com/GoogleChromeLabs/file-drop) web component
-developed by Google Chrome Labs  
+developed by Google Chrome Labs
 {{< /box >}}
 
 The first step is to create a directive that can receive the files from the
@@ -134,7 +134,7 @@ that it emits. In addition, we loop over a list of files and render
 
 {{< file "html" "uploader.component.html" >}} {{< highlight html >}}
 
-<div class="dropzone" 
+<div class="dropzone"
      dropzone
      (hovered)="toggleHover($event)"
      (dropped)="onDrop($event)"
@@ -184,7 +184,7 @@ completes.
 {{< box icon="fire" class="box-orange" >}} There is no hard limit on the number
 of files you can send to Firebase simultaneously. The SDK will attempt to use
 the most efficient strategy available to transfer them to the cloud, which is
-mostly dependent on the user's network connection.  
+mostly dependent on the user's network connection.
 {{< /box >}}
 
 ### Show Progress and Provide User Controls

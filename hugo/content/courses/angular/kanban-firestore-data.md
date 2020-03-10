@@ -28,9 +28,9 @@ export interface Task { description?: string; label?: 'purple' | 'blue' |
 
 {{< file "firebase" "firebase rules" >}} {{< highlight js >}} rules_version =
 '2'; service cloud.firestore { match /databases/{database}/documents { match
-/boards/{document} {   
+/boards/{document} {
  allow read; allow create: if requestMatchesUID(); allow update: if resourceMatchesUID()
-&& requestMatchesUID(); allow delete: if resourceMatchesUID(); }   
+&& requestMatchesUID(); allow delete: if resourceMatchesUID(); }
  function requestMatchesUID() { return request.auth.uid ==
 request.resource.data.uid; }
 

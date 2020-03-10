@@ -4,7 +4,7 @@
         <h1 itemprop="name" id="{{ anchorize .Title }}" class="post-title border-bottom">
             {{ .Title }}
         </h1>
-        
+
         {{ with .Params.video }}
             <video controls src="{{ . }}"></video>
         {{ end }}

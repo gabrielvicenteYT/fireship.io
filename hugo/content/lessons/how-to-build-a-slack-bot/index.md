@@ -186,7 +186,7 @@ Extra Snippet:
 
 {{< highlight typescript >}}
 
-export const myBot = functions.https.onRequest( async (req, res) => {   
+export const myBot = functions.https.onRequest( async (req, res) => {
  // Validate Signature verifySlackSignature(req); // See snippet above for implementation
 
     const data = JSON.stringify(req.body);

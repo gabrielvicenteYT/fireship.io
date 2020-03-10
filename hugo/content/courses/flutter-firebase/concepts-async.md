@@ -28,7 +28,7 @@ final Firestore db = Firestore.instance;
 AppBar(title: Text('Home')), body: Center( child:
 StreamBuilder<DocumentSnapshot>( stream:
 db.collection('users').document('mB6sGaFBczfIW50DJyvGDcQWOvW2').snapshots(),
-builder: (context, snapshot) {   
+builder: (context, snapshot) {
  if (snapshot.hasData) {
 
              var data = snapshot.data.data;

@@ -42,7 +42,7 @@ threshold or time constraint.
 
 {{< box icon="hazard" class="box-red" >}} Never use a rule like
 `allow write: true` in your database in production. Write operations should
-always include some form of authentication.  
+always include some form of authentication.
 {{< /box >}}
 
 ## Rate Limit by Quantity

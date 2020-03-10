@@ -43,7 +43,7 @@ and HTTP performance.
 {{< box icon="scroll" class="box-blue" >}} Keep in mind, you can use Firebase
 Performance as a standalone service without any other Firebase dependencies. In
 this case, you would want to load the lightweight script via the CDN as
-described in docs.  
+described in docs.
 {{< /box >}}
 
 At the time of this article, performance in
@@ -192,7 +192,7 @@ constructor(private perf: AngularFirePerformance, private db: AngularFirestore)
 
 items;
 
-ngOnInit() {   
+ngOnInit() {
  this.items = this.db.collection('items').snapshotChanges() .pipe(
 
         // Custom RxJS Operator

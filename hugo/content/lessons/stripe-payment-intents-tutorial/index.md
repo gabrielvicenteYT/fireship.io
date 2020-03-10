@@ -223,7 +223,7 @@ secret to Stripe for processing.
 
 <script>
   let stripe = Stripe('pk_test_m3a5moXVKgThpdfwzKILvnbG');
-  
+
   // REPLACE with your Firebase Project ID
   let api = 'http://localhost:5000/awesomeapp-dev/us-central1/payments';
 
@@ -277,7 +277,7 @@ secret to Stripe for processing.
     const result = await stripe.handleCardPayment(
       clientSecret, cardElement, {
         payment_method_data: {
-        
+
         }
       }
     );
@@ -290,7 +290,7 @@ secret to Stripe for processing.
       console.error(error);
       alert('fudge!');
     }
-  }  
+  }
 </script>
 
 <section>

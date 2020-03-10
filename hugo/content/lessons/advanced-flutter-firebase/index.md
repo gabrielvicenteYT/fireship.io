@@ -191,7 +191,7 @@ int hitpoints; final String img;
 
 Weapon({ this.id, this.name, this.hitpoints, this.img, });
 
-factory Weapon.fromFirestore(DocumentSnapshot doc) { Map data = doc.data;   
+factory Weapon.fromFirestore(DocumentSnapshot doc) { Map data = doc.data;
  return Weapon( id: doc.documentID, name: data['name'] ?? '', hitpoints: data['hitpoints']
 ?? 0, img: data['img'] ?? '' ); }
 

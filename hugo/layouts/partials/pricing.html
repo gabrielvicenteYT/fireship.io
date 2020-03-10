@@ -1,7 +1,7 @@
 <div class="pricing row">
 
     <div class="pricing-item monthly">
-        
+
         <div class="pricing-icon"><i>{{ partial "svg/heart.svg" }}</i></div>
         <div class="pricing-title"><h3>Monthly</h3></div>
 
@@ -22,45 +22,45 @@
     </div>
 
     <div class="pricing-item monthly">
-        
+
             <div class="pricing-icon"><i>{{ partial "svg/rocket.svg" }}</i></div>
             <div class="pricing-title"><h3>Quarterly</h3></div>
-    
+
             <div class="pricing-price">
                 <span class="price">$50</span><span class="interval">/3mo</span>
             </div>
-    
+
             <ul class="pricing-features">
                 <li>All monthly tier benefits</li>
                 <li class="no-emoji">💰 33.33% discount</li>
                 <li class="no-emoji">🔥 Free Sticker</li>
             </ul>
-    
+
             <product-select product-id="proQuarterly" text="Choose Plan"></product-select>
-    
+
         </div>
     <div class="pricing-item monthly">
-    
+
             <div class="pricing-icon"><i>{{ partial "svg/unicorn.svg" }}</i></div>
             <div class="pricing-title"><h3>Lifetime</h3></div>
-    
+
             <div class="pricing-price">
                 <span class="price">$300</span><span class="interval">/one-time</span>
             </div>
-    
+
             <ul class="pricing-features">
                 <li>All monthly tier Benefits</li>
                 <li class="no-emoji">💸 One-time payment</li>
                 <li class="no-emoji">👕 Free Commemorative <a href="https://teespring.com/en/fireship-classic" target="blank">T-Shirt</a></li>
             </ul>
-            
-            
+
+
             <product-select product-id="proLifetime" text="Choose Plan"></product-select>
-    
+
         </div>
 
-            
-        
+
+
 </div>
 
 <div class="flex-center" id="paymentWrapper">
@@ -69,8 +69,8 @@
                 <div class="payment-card">
                     <payment-form allow-coupons="true"></payment-form>
                 </div>
-            
-            
+
+
                 <span slot="falsey">
                     {{ partial "login.html" }}
                 </span>
@@ -79,4 +79,3 @@
         </div>
 
 <hr>
-

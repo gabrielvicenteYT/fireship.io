@@ -292,7 +292,7 @@ messages" type="text" [message]="msg.text" [reply]="msg.reply"
 </nb-chat-message>
 
 <nb-chat-message \*ngIf="loading" [nbSpinner]="loading" nbSpinnerStatus="info"
-type="text" avatar="/assets/bot.jpeg" message="...">   
+type="text" avatar="/assets/bot.jpeg" message="...">
 </nb-chat-message>
 
     <nb-chat-form (send)="handleUserMessage($event)" [dropFiles]="true">

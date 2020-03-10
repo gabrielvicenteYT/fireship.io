@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
   {{ partial "head.html" .}}
- 
+
 
   <body class="dark-theme">
     {{ block "topnav" . }}
@@ -12,7 +12,7 @@
       {{ partial "sidenav.html" . }}
     {{ end }}
 
-    
+
     <main role="main">
       {{ block "main" . }}{{ end }}
       {{ block "feed" . }}{{ end }}

@@ -4,10 +4,10 @@ description: How to be successful in this course
 weight: 1
 lastmod: 2019-07-13T10:13:30-04:00
 draft: false
-emoji: 
+emoji:
 vimeo: 336120794
 emoji: 👶
-chapter_start: Intro 
+chapter_start: Intro
 free: true
 video_length: 1:42
 ---

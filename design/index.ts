@@ -78,17 +78,17 @@ declare function gtag(command: 'config' | 'set' | 'event', id: string, config?: 
               const newEl = document.createElement('span');
               newEl.id = 'copied';
               newEl.innerHTML = 'copied!';
-              newEl.classList.add('tag', 'tag-green', 'copy-alert'); 
-              
+              newEl.classList.add('tag', 'tag-green', 'copy-alert');
+
               return newEl;
             }
             const alert = document.getElementById('copied') || createEl();
-   
+
             el.parentElement.appendChild(alert);
             alert.classList.add('delayed-fade');
           })
         })
-       
+
       }
 
       copyCodeSnippets();

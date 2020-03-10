@@ -69,7 +69,7 @@ function deployed to Firebase.
 		const callable = functions.httpsCallable('genericEmail');
 		return callable({ text: 'Sending email with Svelte and SendGrid is fun!', subject: 'Email from Svelte'}).then(console.log);
 	}
-	
+
 </script>
 <h2>SendGrid Transactional Email with Svelte</h2>
 

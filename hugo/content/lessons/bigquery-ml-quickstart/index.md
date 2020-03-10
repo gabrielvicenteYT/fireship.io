@@ -184,7 +184,7 @@ runner_id, position FROM ML.PREDICT(MODEL
 `fireship-lessons.horse_data.ml_model`, ( SELECT age, sex, overall_wins,
 overall_places, handicap_weight, penalty, favourite_odds_win, number, runner_id,
 bf_odds, barrier, market_id, position FROM `fireship-lessons.horse_data.horses`
-ORDER BY RAND() LIMIT 10   
+ORDER BY RAND() LIMIT 10
  ) ) {{< /highlight >}}
 
 {{< figure src="img/bigquery-ml-predict.png" caption="The final model predictions that we can take to the racetrack" >}}

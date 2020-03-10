@@ -22,47 +22,47 @@
 
 
             <allow-if level="pro">
-    
+
                 <div class="content-body">
-                    {{ .Content }} 
+                    {{ .Content }}
                 </div>
 
 
                 <div slot="falsey">
                   <div  class="content-body">
-                      {{ .Content | safeHTML | truncate 800 }} 
+                      {{ .Content | safeHTML | truncate 800 }}
                   </div>
 
                   <allow-if level="user">
 
                     <h2 class="text-center">Upgrade to PRO for the Full Lesson</h2>
-              
+
                     {{ partial "pricing" }}
 
 
-                    
-                    <span slot="falsey">   
+
+                    <span slot="falsey">
                         <div class="box box-orange">
                             <div class="box-icon">
                              {{ partial "svg/hazard.svg"}}
                             </div>
                             <div class="box-content">
-                                <p> You must be logged in to view this content.  
+                                <p> You must be logged in to view this content.
 
                                   <modal-button selector="login-modal">
                                     <button class="btn btn-sm">Login</span>
                                   </modal-button>
                                 </p>
 
-    
-                              
+
+
                             </div>
-                              
+
                         </div>
-                                  
+
        </span>
                   </allow-if>
-            
+
                 </div>
 
 
@@ -72,7 +72,7 @@
           {{ partial "lesson-headline" . }}
 
           <div class="content-body">
-            {{ .Content }} 
+            {{ .Content }}
           </div>
         {{ end }}
 

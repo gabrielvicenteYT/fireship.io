@@ -219,7 +219,7 @@ replace them with your own styles.
 
 {{< file "html" "foo.component.html" >}} {{< highlight html >}}
 
-<div *ngIf="presence$ | async as presence" class="tag is-large" 
+<div *ngIf="presence$ | async as presence" class="tag is-large"
       [ngClass]="{
           'is-success':  presence.status  === 'online',
           'is-warning': presence.status  === 'away',

@@ -164,7 +164,7 @@ can toggle the _complete_ status by clicking the ✔️ or ❌ buttons.
     import { createEventDispatcher } from 'svelte';
 
     const dispatch = createEventDispatcher();
-    
+
     function remove() {
 		dispatch('remove', { id });
 	}
@@ -176,7 +176,7 @@ can toggle the _complete_ status by clicking the ✔️ or ❌ buttons.
             newStatus
         });
     }
-    
+
 
     export let id; // document ID
     export let text;

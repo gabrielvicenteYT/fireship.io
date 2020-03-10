@@ -9,22 +9,22 @@ export {  proBotWelcome, proBotHandler, proBotSlash } from './slack/pro';
 
 ///// PAYMENTS /////
 
-export { 
+export {
     stripeSetSource
 } from './stripe/sources';
 
-export { 
+export {
     stripeGetCharges,
     stripeGetInvoices,
     stripeGetCustomer ,
 } from './stripe/customers';
 
-export { 
+export {
     stripeCreateOrder,
 } from './stripe/orders';
 
-export { 
-    stripeCreateSubscription, 
+export {
+    stripeCreateSubscription,
     stripeCancelSubscription,
     stripeGetSubscriptions,
     stripeGetCoupon,

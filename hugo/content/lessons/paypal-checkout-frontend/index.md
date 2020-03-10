@@ -38,7 +38,7 @@ React, and Vue.
 fullstack payment solution, check out the
 [Stripe Payments Master Course](/courses/stripe). Ironically, you can pay for it
 with PayPal if you prefer 🤷. Both PayPal and Stripe share similar APIs, so
-concepts from the course overlap both APIs.  
+concepts from the course overlap both APIs.
 {{< /box >}}
 
 ## Live Demo

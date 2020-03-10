@@ -41,7 +41,7 @@ the installation steps to make the prebuilt components available in your app.
 
 <ais-search-box></ais-search-box> <ais-hits>
 <ng-template let-hits="hits" let-results="results"> <div *ngIf="hits.length ===
-0"> No results found matching <strong>{{results.query}}</strong>. </div>   
+0"> No results found matching <strong>{{results.query}}</strong>. </div>
  <div *ngIf="results.query"> <div \*ngFor="let hit of hits" class="content"> <img
 [src]="hit.avatar"> <section> <h3>{{hit.username}} {{hit.objectID}}</h3> <ais-highlight
 attribute="bio" [hit]="hit"></ais-highlight> </section> </div> </div> </ng-template>

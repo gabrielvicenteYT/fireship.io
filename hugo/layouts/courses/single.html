@@ -25,7 +25,7 @@
                     <div class="vid vid-center">
                             <iframe src="https://player.vimeo.com/video/{{ . }}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
-                
+
                 <span slot="falsey">{{ partial "video-login.html" }}</span>
 
             </allow-if>
@@ -54,15 +54,15 @@
                             <p><product-select class-name="btn btn-blue btn-lg" product-id="{{ $course }}" text="Enroll for $19.00"></product-select>
                                 <br><span class="text-sm">*Enrollment provides full access to this course (and updates) for life.</span>
                             </p>
-                            
+
                             <a href="/pro" class="btn btn-green">Or Signup for Unlimited PRO Access</a>
-                        
-                            
+
+
                             <div class="payment-card">
                                 <payment-form></payment-form>
                             </div>
-                        
-    
+
+
                         </allow-if>
 
                     </div>
@@ -76,7 +76,7 @@
             </allow-if>
 
             {{ end }}
-        
+
         {{ end }}
 
 
@@ -86,7 +86,7 @@
 
   <div class="content-main">
 
-    
+
 
     {{ if $free }}
         <section class="content-article no-toc course-article" itemprop="articleBody">{{ .Content }}</section>
@@ -100,7 +100,7 @@
 
   </div>
 
-  {{ $chapters := .Parent.Pages.ByWeight }} 
+  {{ $chapters := .Parent.Pages.ByWeight }}
   {{ partial "chapters.html" (dict "chapters" $chapters "active" .RelPermalink) }}
 </article>
 
@@ -108,4 +108,3 @@
 
 
 {{ end }}
-

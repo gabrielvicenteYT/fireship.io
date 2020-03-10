@@ -9,7 +9,7 @@
             {{ partial "svg/telescope.svg" . }}
             <span class="item-label tag tag-contrast tag-sm">search</span>
         </span>
-</modal-button> 
+</modal-button>
 
     <!-- <allow-if level="pro">
         <span slot="falsey">
@@ -36,7 +36,7 @@
         {{ partial "svg/commit.svg" . }}
         <span class="item-label tag tag-contrast tag-sm">quick snippets</span>
     </a>
-    
+
     <a class="item" href="/tags">
         {{ partial "svg/tags.svg" . }}
         <span class="item-label tag tag-contrast tag-sm">tags</span>
@@ -49,18 +49,16 @@
             <user-data field="is_pro"></user-data>
             <span class="item-label tag tag-contrast tag-sm">dashboard</span>
         </a>
-        
+
         <div class="item" slot="falsey">
                 <modal-button selector="login-modal">
                         <div class="flex-center"><img src="/img/google-login.svg" alt="google login"></div>
                         <span class="tag tag-sm">login</span>
                 </modal-button>
-                
+
                 <span class="item-label tag tag-contrast tag-sm">login</span>
             </div>
 
     </allow-if>
 
 </nav>
-
-

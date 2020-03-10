@@ -39,4 +39,3 @@ export function legitSlackRequest(req) {
   // Returns true if it matches
   return tsscmp(hash, hmac.digest('hex'));
 }
-
